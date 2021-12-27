@@ -122,3 +122,53 @@ Your code has been rated at 10.00/10
 
 That's about it! When working with kubernetes, you may need to install some other libraries, but these instructions will set you up with an environment that can build and deploy Docker containers.
 
+---
+
+## Project ML Microservices Kubernetes
+
+### Building the Docker Image
+
+This will build the docker image and start the application on port 80
+
+```bash
+cd project-ml-microservice-kubernetes
+./run_docker.sh
+```
+
+### Uploading the Docker Image
+
+The docker image can be uploaded to docker hub with the command.
+
+```bash
+cd project-ml-microservice-kubernetes
+./upload_docker.sh
+```
+
+Logging into docker is required for this command to be successful.
+
+### Deploying to a Kubernetes cluster
+
+*Prerequisites*
+
+- [ ] microk8s running locally
+- [ ] docker image... Either
+    - `docker auth login`
+    - building the docker image locally
+
+The following command will deploy a single instance of the web application to the microk8s cluster.
+
+```bash
+cd project-ml-microservice-kubernetes
+./run_kubernetes
+```
+
+Running this command will update the cluster and then attempt to proxy to the application on http://localhost:8000
+
+*This command may need to be run more than once due to the start up time of the application*
+
+Then the make predictions script can be run to interact with the deployment in microk8s
+
+```bash
+cd project-ml-microservice-kubernetes
+./make_prediction.sh
+```
