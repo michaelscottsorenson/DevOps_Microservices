@@ -4,19 +4,17 @@ jobs:
   build:
     docker:
       - image: python:3.7.3-stretch
-    # working_directory: ~/repo/project-ml-microservice-kubernetes
     steps:
       - checkout
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "requirements.txt" }}
+            - v1-dependencies-{{ checksum "project-ml-microservice-kubernetes/requirements.txt" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
       - run:
           name: install dependencies
           command: |
             cd project-ml-microservice-kubernetes
-            pwd
             python3 -m venv venv
             . venv/bin/activate
             make install
@@ -26,11 +24,10 @@ jobs:
       - save_cache:
           paths:
             - ./venv
-          key: v1-dependencies-{{ checksum "requirements.txt" }}
+          key: v1-dependencies-{{ checksum "project-ml-microservice-kubernetes/requirements.txt" }}
       - run:
           name: run lint
           command: |
             cd project-ml-microservice-kubernetes
-            pwd
             . venv/bin/activate
             make lint 
