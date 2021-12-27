@@ -4,7 +4,7 @@ jobs:
   build:
     docker:
       - image: python:3.7.3-stretch
-    working_directory: ~/repo/project-ml-microservice-kubernetes
+    # working_directory: ~/repo/project-ml-microservice-kubernetes
     steps:
       - checkout
       - restore_cache:
@@ -15,6 +15,8 @@ jobs:
       - run:
           name: install dependencies
           command: |
+            cd project-ml-microservice-kubernetes
+            pwd
             python3 -m venv venv
             . venv/bin/activate
             make install
@@ -28,5 +30,7 @@ jobs:
       - run:
           name: run lint
           command: |
+            cd project-ml-microservice-kubernetes
+            pwd
             . venv/bin/activate
             make lint 
