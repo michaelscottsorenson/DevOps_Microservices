@@ -132,7 +132,7 @@ This will build the docker image and start the application on port 80
 
 ```bash
 cd project-ml-microservice-kubernetes
-./run_docker.sh
+sudo ./run_docker.sh
 ```
 
 ### Uploading the Docker Image
@@ -141,7 +141,7 @@ The docker image can be uploaded to docker hub with the command.
 
 ```bash
 cd project-ml-microservice-kubernetes
-./upload_docker.sh
+sudo ./upload_docker.sh
 ```
 
 Logging into docker is required for this command to be successful.
@@ -159,7 +159,7 @@ The following command will deploy a single instance of the web application to th
 
 ```bash
 cd project-ml-microservice-kubernetes
-./run_kubernetes
+sudo ./run_kubernetes
 ```
 
 Running this command will update the cluster and then attempt to proxy to the application on http://localhost:8000

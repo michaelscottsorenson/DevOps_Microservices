@@ -12,4 +12,4 @@ dockerpath="michaelsorenson/udacity-project-ml:latest"
 echo "Docker ID and Image: $dockerpath"
 
 # Step 3:
-sudo docker push "$dockerpath"
+docker push "$dockerpath"
