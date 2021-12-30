@@ -1,4 +1,5 @@
-<include a CircleCI status badge, here>
+[![CircleCI](https://circleci.com/gh/michaelscottsorenson/DevOps_Microservices/tree/master.svg?style=svg)](https://circleci.com/gh/michaelscottsorenson/DevOps_Microservices/tree/master)
+
 
 ## Project Overview
 
@@ -48,3 +49,16 @@ source .devops/bin/activate
 * Setup and Configure Kubernetes locally
 * Create Flask app in Container
 * Run via kubectl
+
+To build the image and deploy to kubernetes run the following scripts
+
+```bash
+sudo ./run_docker.sh
+sudo ./run_kubernetes.sh
+```
+
+In a separate terminal run this script while the port-forwarding to kubernetes is still up from the `./run_kubernetes.sh`
+
+```bash
+sudo ./make_prediction.sh
+```
