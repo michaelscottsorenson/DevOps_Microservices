@@ -13,4 +13,4 @@ docker images | grep michaelsorenson/udacity-project-ml
 # Step 3: 
 # Run flask app
 # TODO: uncomment if it is desired to run the app with docker locally
-# docker run -it -p 8000:80 michaelsorenson/udacity-project-ml:latest
+docker run -it -p 8000:80 michaelsorenson/udacity-project-ml:latest
