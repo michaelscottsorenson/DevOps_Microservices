@@ -50,10 +50,15 @@ source .devops/bin/activate
 * Create Flask app in Container
 * Run via kubectl
 
-To build the image and deploy to kubernetes run the following scripts
+Run this script to build the application into a docker image that can be used to deploy to the kubernetes cluster.
 
 ```bash
 sudo ./run_docker.sh
+```
+
+This script will run the application in the docker image. So the script will need to be exited with ctrl+c before running the next script.
+
+```bash
 sudo ./run_kubernetes.sh
 ```
 
